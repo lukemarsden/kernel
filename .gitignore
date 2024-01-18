@@ -1,0 +1,17 @@
+/Module.kabi_aarch64
+/Module.kabi_dup_aarch64
+/Module.kabi_dup_ppc64le
+/Module.kabi_dup_s390x
+/Module.kabi_dup_x86_64
+/Module.kabi_ppc64le
+/Module.kabi_s390x
+/Module.kabi_x86_64
+/kernel-abi-stablelists-6.7.0.tar.xz
+/kernel-kabi-dw-6.7.0.tar.xz
+/linux-6.7.tar.xz
+/redhatsecureboot003.cer
+/redhatsecureboot401.cer
+/redhatsecurebootca2.cer
+/redhatsecurebootca4.cer
+/rheldup3.x509
+/rhelkpatch1.x509

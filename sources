@@ -1,0 +1,17 @@
+d41d8cd98f00b204e9800998ecf8427e  Module.kabi_aarch64
+d41d8cd98f00b204e9800998ecf8427e  Module.kabi_dup_aarch64
+d41d8cd98f00b204e9800998ecf8427e  Module.kabi_dup_ppc64le
+d41d8cd98f00b204e9800998ecf8427e  Module.kabi_dup_s390x
+d41d8cd98f00b204e9800998ecf8427e  Module.kabi_dup_x86_64
+d41d8cd98f00b204e9800998ecf8427e  Module.kabi_ppc64le
+d41d8cd98f00b204e9800998ecf8427e  Module.kabi_s390x
+d41d8cd98f00b204e9800998ecf8427e  Module.kabi_x86_64
+4d473b88103951634520f6c1800708f0  kernel-abi-stablelists-6.7.0.tar.xz
+72ad46a9490cdc81398c35d1fa4c5876  kernel-kabi-dw-6.7.0.tar.xz
+689c3badaa40f0ddb512af0c2225ee09  linux-6.7.tar.xz
+cc846b13fb44aac068ca3332c8fc8961  redhatsecureboot003.cer
+02009d5ecdda65ed2bc049823bf26855  redhatsecureboot401.cer
+aa84cc700f786344f3fc7d749bc4342e  redhatsecurebootca2.cer
+fb6997152d5c184621dd109fd9b1bb68  redhatsecurebootca4.cer
+e1d963bfce42eb49f061145961967b68  rheldup3.x509
+151a7cc087e3b910e5da7f2dc82cbaba  rhelkpatch1.x509

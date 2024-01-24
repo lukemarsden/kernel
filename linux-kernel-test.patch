@@ -1,7 +1,7 @@
-From 9ce2dd8be7c236ce727e02973f1c5d30f6a9300a Mon Sep 17 00:00:00 2001
+From 4e34bb68beec288e6fbc71170ff6d3ed39b76ce6 Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:15 +0800
-Subject: [PATCH 01/26] media: intel/ipu6: add Intel IPU6 PCI device driver
+Subject: [PATCH 01/31] media: intel/ipu6: add Intel IPU6 PCI device driver
 
 Intel Image Processing Unit 6th Gen includes input and processing systems
 but the hardware presents itself as a single PCI device in system.
@@ -1545,10 +1545,10 @@ index 000000000000..04e7e7e61ca5
 -- 
 2.43.0
 
-From 9528cdb2010448ee3c209c057b66e70c840fa091 Mon Sep 17 00:00:00 2001
+From 79ff4f8a1383c679fc4bbee832e51e6369cbc21c Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:16 +0800
-Subject: [PATCH 02/26] media: intel/ipu6: add IPU auxiliary devices
+Subject: [PATCH 02/31] media: intel/ipu6: add IPU auxiliary devices
 
 Even the IPU input system and processing system are in a single PCI
 device, each system has its own power sequence, the processing system
@@ -1808,10 +1808,10 @@ index 000000000000..d46181354836
 -- 
 2.43.0
 
-From 7e62cc452e8d8d393ca08a981f1cf215a11523e4 Mon Sep 17 00:00:00 2001
+From 5836e6b1138ff9cba76ab74c1eab0ec57e50dfc1 Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:17 +0800
-Subject: [PATCH 03/26] media: intel/ipu6: add IPU6 buttress interface driver
+Subject: [PATCH 03/31] media: intel/ipu6: add IPU6 buttress interface driver
 
 The IPU6 buttress is the interface between IPU device (input system
 and processing system) with rest of the SoC. It contains overall IPU
@@ -3098,10 +3098,10 @@ index 000000000000..87239af96502
 -- 
 2.43.0
 
-From 9a773ef379dad62ce325e0afc50a8f06c5b64d63 Mon Sep 17 00:00:00 2001
+From 4e01328e611be4ba5a2c9fe2baedfeb239db9d99 Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:18 +0800
-Subject: [PATCH 04/26] media: intel/ipu6: CPD parsing for get firmware
+Subject: [PATCH 04/31] media: intel/ipu6: CPD parsing for get firmware
  components
 
 For IPU6, firmware is generated and released as signed
@@ -3602,10 +3602,10 @@ index 000000000000..37465d507386
 -- 
 2.43.0
 
-From a683f7c87f96bdf1ed91a5967b26852c9540e230 Mon Sep 17 00:00:00 2001
+From 05c36b7a6306ed7ef15b9fd6039920a7d08626cc Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:19 +0800
-Subject: [PATCH 05/26] media: intel/ipu6: add IPU6 DMA mapping API and MMU
+Subject: [PATCH 05/31] media: intel/ipu6: add IPU6 DMA mapping API and MMU
  table
 
 he Intel IPU6 has an internal microcontroller (scalar processor, SP) which
@@ -5095,10 +5095,10 @@ index 000000000000..95df7931a2e5
 -- 
 2.43.0
 
-From 7c40097d6dfe879c535fd9d9c1c48ca35612d0ea Mon Sep 17 00:00:00 2001
+From 6e686c2ff23611004d6e4f9a543116d65cbcf5f3 Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:20 +0800
-Subject: [PATCH 06/26] media: intel/ipu6: add syscom interfaces between
+Subject: [PATCH 06/31] media: intel/ipu6: add syscom interfaces between
  firmware and driver
 
 Syscom is an inter-process(or) communication mechanism between an IPU
@@ -5594,10 +5594,10 @@ index 000000000000..660c406b3ac9
 -- 
 2.43.0
 
-From 21efe6f0a980e6bda04dc89e75d3ec11cb9dfc4a Mon Sep 17 00:00:00 2001
+From 6784d60f5fe68eca8bfc92785b5badd0bf415048 Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:21 +0800
-Subject: [PATCH 07/26] media: intel/ipu6: input system ABI between firmware
+Subject: [PATCH 07/31] media: intel/ipu6: input system ABI between firmware
  and driver
 
 Implement the input system firmware ABIs between the firmware and
@@ -6689,10 +6689,10 @@ index 000000000000..a7ffa0e22bf0
 -- 
 2.43.0
 
-From 2f232155b4026ef6bd9f37095b5dccbfa54df20b Mon Sep 17 00:00:00 2001
+From 2d13721450bd1d8e778c0727a7c3eac6cc1fd6c0 Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:22 +0800
-Subject: [PATCH 08/26] media: intel/ipu6: add IPU6 CSI2 receiver v4l2
+Subject: [PATCH 08/31] media: intel/ipu6: add IPU6 CSI2 receiver v4l2
  sub-device
 
 Input system CSI2 receiver is exposed as a v4l2 sub-device.
@@ -8128,10 +8128,10 @@ index 000000000000..2034e1109d98
 -- 
 2.43.0
 
-From 20d83104eb2567c3e6d096cdc6add6942253ffae Mon Sep 17 00:00:00 2001
+From ba67c52b68d458e2c8ae4af08bd01a6ebe60b475 Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:23 +0800
-Subject: [PATCH 09/26] media: intel/ipu6: add the CSI2 DPHY implementation
+Subject: [PATCH 09/31] media: intel/ipu6: add the CSI2 DPHY implementation
 
 IPU6 CSI2 DPHY hardware varies on different platforms, current
 IPU6 has three DPHY hardware instance which maybe used on tigerlake,
@@ -9672,10 +9672,10 @@ index 000000000000..9abf389a05f1
 -- 
 2.43.0
 
-From 0f69383016e791a565281f1beb077319f71f6ec0 Mon Sep 17 00:00:00 2001
+From a3b3658e56d3fe9e0cb03166e38a023dba853594 Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:24 +0800
-Subject: [PATCH 10/26] media: intel/ipu6: add input system driver
+Subject: [PATCH 10/31] media: intel/ipu6: add input system driver
 
 Input system driver do basic isys hardware setup and irq handling
 and work with fwnode and v4l2 to register the ISYS v4l2 devices.
@@ -11266,10 +11266,10 @@ index 000000000000..cf7a90bfedc9
 -- 
 2.43.0
 
-From f0339311c9f6bdedd372792afe9b55a2b5a0a8e0 Mon Sep 17 00:00:00 2001
+From 32d07a2e879187ea87b90256ac32a41080e3b8bc Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:25 +0800
-Subject: [PATCH 11/26] media: intel/ipu6: input system video capture nodes
+Subject: [PATCH 11/31] media: intel/ipu6: input system video capture nodes
 
 Register v4l2 video device and setup the vb2 queue to
 support basic video capture. Video streaming callback
@@ -13609,10 +13609,10 @@ index 000000000000..21cd33c7e277
 -- 
 2.43.0
 
-From 737a3cd58e2c91abea75caf7edb7b923b36b3264 Mon Sep 17 00:00:00 2001
+From abf929b4fbd35689080a8629c6bfebe0de699fe5 Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:26 +0800
-Subject: [PATCH 12/26] media: add Kconfig and Makefile for IPU6
+Subject: [PATCH 12/31] media: add Kconfig and Makefile for IPU6
 
 Add IPU6 support in Kconfig and Makefile, with this patch you can
 build the Intel IPU6 and input system modules by select the
@@ -13707,10 +13707,10 @@ index 000000000000..a821b0a1567f
 -- 
 2.43.0
 
-From 95195d3cf9add2e419c6be483ed55a686985914a Mon Sep 17 00:00:00 2001
+From 59872e5aa96479948da4b1d04a10101d8cb86da2 Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:27 +0800
-Subject: [PATCH 13/26] MAINTAINERS: add maintainers for Intel IPU6 input
+Subject: [PATCH 13/31] MAINTAINERS: add maintainers for Intel IPU6 input
  system driver
 
 Update MAINTAINERS file for Intel IPU6 input system driver.
@@ -13746,10 +13746,10 @@ index a7c4cf8201e0..bedffa6941ab 100644
 -- 
 2.43.0
 
-From 44469827d179676369668c34cde7a273c44fe4d7 Mon Sep 17 00:00:00 2001
+From 7acc1618d2f9cbb0d6b07ce9a1eace25663b9fb2 Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:28 +0800
-Subject: [PATCH 14/26] Documentation: add Intel IPU6 ISYS driver admin-guide
+Subject: [PATCH 14/31] Documentation: add Intel IPU6 ISYS driver admin-guide
  doc
 
 This document mainly describe the functionality of IPU6 and
@@ -14126,10 +14126,10 @@ index 61283d67ceef..50bdef2d1762 100644
 -- 
 2.43.0
 
-From 66435d28e4c15234ec83d0095e89e4457cae2e44 Mon Sep 17 00:00:00 2001
+From 878747fcd0bb4f27933d3d32525472b8a0425724 Mon Sep 17 00:00:00 2001
 From: Bingbu Cao <bingbu.cao@intel.com>
 Date: Thu, 11 Jan 2024 14:55:29 +0800
-Subject: [PATCH 15/26] Documentation: add documentation of Intel IPU6 driver
+Subject: [PATCH 15/31] Documentation: add documentation of Intel IPU6 driver
  and hardware overview
 
 Add a documentation for an overview of IPU6 hardware and describe the main
@@ -14370,10 +14370,138 @@ index 000000000000..b6357155c13b
 -- 
 2.43.0
 
-From 7f565e5ffc9e85ce44a26e31e92d870da50bb799 Mon Sep 17 00:00:00 2001
+From 7103b8fabe3158d203b72036abc2a964687d46b8 Mon Sep 17 00:00:00 2001
+From: Hans de Goede <hdegoede@redhat.com>
+Date: Mon, 15 Jan 2024 15:57:06 +0100
+Subject: [PATCH 16/31] media: intel/ipu6: Disable packed bayer v4l2-buffer
+ formats on TGL
+
+Using CSI2 packing to store 10bpp bayer data in the v4l2-buffers does not
+work on Tiger Lake when testing with an ov01a1s sensor.
+
+Disable packed bayer formats on Tiger Lake for now.
+
+Signed-off-by: Hans de Goede <hdegoede@redhat.com>
+---
+ .../media/pci/intel/ipu6/ipu6-isys-video.c    | 60 +++++++++++++------
+ 1 file changed, 43 insertions(+), 17 deletions(-)
+
+diff --git a/drivers/media/pci/intel/ipu6/ipu6-isys-video.c b/drivers/media/pci/intel/ipu6/ipu6-isys-video.c
+index 847eac26bcd6..16d15f05a6dc 100644
+--- a/drivers/media/pci/intel/ipu6/ipu6-isys-video.c
++++ b/drivers/media/pci/intel/ipu6/ipu6-isys-video.c
+@@ -61,6 +61,17 @@ const struct ipu6_isys_pixelformat ipu6_isys_pfmts[] = {
+ 	 IPU6_FW_ISYS_FRAME_FORMAT_RAW8},
+ 	{V4L2_PIX_FMT_SRGGB8, 8, 8, MEDIA_BUS_FMT_SRGGB8_1X8,
+ 	 IPU6_FW_ISYS_FRAME_FORMAT_RAW8},
++	{V4L2_PIX_FMT_UYVY, 16, 16, MEDIA_BUS_FMT_UYVY8_1X16,
++	 IPU6_FW_ISYS_FRAME_FORMAT_UYVY},
++	{V4L2_PIX_FMT_YUYV, 16, 16, MEDIA_BUS_FMT_YUYV8_1X16,
++	 IPU6_FW_ISYS_FRAME_FORMAT_YUYV},
++	{V4L2_PIX_FMT_RGB565, 16, 16, MEDIA_BUS_FMT_RGB565_1X16,
++	 IPU6_FW_ISYS_FRAME_FORMAT_RGB565},
++	{V4L2_PIX_FMT_BGR24, 24, 24, MEDIA_BUS_FMT_RGB888_1X24,
++	 IPU6_FW_ISYS_FRAME_FORMAT_RGBA888},
++};
++
++const struct ipu6_isys_pixelformat ipu6_isys_pfmts_packed[] = {
+ 	{V4L2_PIX_FMT_SBGGR12P, 12, 12, MEDIA_BUS_FMT_SBGGR12_1X12,
+ 	 IPU6_FW_ISYS_FRAME_FORMAT_RAW12},
+ 	{V4L2_PIX_FMT_SGBRG12P, 12, 12, MEDIA_BUS_FMT_SGBRG12_1X12,
+@@ -77,14 +88,6 @@ const struct ipu6_isys_pixelformat ipu6_isys_pfmts[] = {
+ 	 IPU6_FW_ISYS_FRAME_FORMAT_RAW10},
+ 	{V4L2_PIX_FMT_SRGGB10P, 10, 10, MEDIA_BUS_FMT_SRGGB10_1X10,
+ 	 IPU6_FW_ISYS_FRAME_FORMAT_RAW10},
+-	{V4L2_PIX_FMT_UYVY, 16, 16, MEDIA_BUS_FMT_UYVY8_1X16,
+-	 IPU6_FW_ISYS_FRAME_FORMAT_UYVY},
+-	{V4L2_PIX_FMT_YUYV, 16, 16, MEDIA_BUS_FMT_YUYV8_1X16,
+-	 IPU6_FW_ISYS_FRAME_FORMAT_YUYV},
+-	{V4L2_PIX_FMT_RGB565, 16, 16, MEDIA_BUS_FMT_RGB565_1X16,
+-	 IPU6_FW_ISYS_FRAME_FORMAT_RGB565},
+-	{V4L2_PIX_FMT_BGR24, 24, 24, MEDIA_BUS_FMT_RGB888_1X24,
+-	 IPU6_FW_ISYS_FRAME_FORMAT_RGBA888},
+ };
+ 
+ static int video_open(struct file *file)
+@@ -109,14 +112,27 @@ static int video_release(struct file *file)
+ 	return vb2_fop_release(file);
+ }
+ 
++static const struct ipu6_isys_pixelformat *
++ipu6_isys_get_pixelformat_by_idx(unsigned int idx)
++{
++	if (idx < ARRAY_SIZE(ipu6_isys_pfmts))
++		return &ipu6_isys_pfmts[idx];
++
++	idx -= ARRAY_SIZE(ipu6_isys_pfmts);
++
++	if (idx < ARRAY_SIZE(ipu6_isys_pfmts_packed))
++		return &ipu6_isys_pfmts_packed[idx];
++
++	return NULL;
++}
++
+ static const struct ipu6_isys_pixelformat *
+ ipu6_isys_get_pixelformat(u32 pixelformat)
+ {
++	const struct ipu6_isys_pixelformat *pfmt;
+ 	unsigned int i;
+ 
+-	for (i = 0; i < ARRAY_SIZE(ipu6_isys_pfmts); i++) {
+-		const struct ipu6_isys_pixelformat *pfmt = &ipu6_isys_pfmts[i];
+-
++	for (i = 0; (pfmt = ipu6_isys_get_pixelformat_by_idx(i)); i++) {
+ 		if (pfmt->pixelformat == pixelformat)
+ 			return pfmt;
+ 	}
+@@ -138,24 +154,34 @@ int ipu6_isys_vidioc_querycap(struct file *file, void *fh,
+ int ipu6_isys_vidioc_enum_fmt(struct file *file, void *fh,
+ 			      struct v4l2_fmtdesc *f)
+ {
+-	unsigned int i, found = 0;
++	struct ipu6_isys_video *av = video_drvdata(file);
++	const struct ipu6_isys_pixelformat *fmt;
++	unsigned int i, nfmts, found = 0;
+ 
+-	if (f->index >= ARRAY_SIZE(ipu6_isys_pfmts))
++	nfmts = ARRAY_SIZE(ipu6_isys_pfmts);
++	/* Disable packed formats on TGL for now, TGL has 8 CSI ports */
++	if (av->isys->pdata->ipdata->csi2.nports != 8)
++		nfmts += ARRAY_SIZE(ipu6_isys_pfmts_packed);
++
++	if (f->index >= nfmts)
+ 		return -EINVAL;
+ 
+ 	if (!f->mbus_code) {
++		fmt = ipu6_isys_get_pixelformat_by_idx(f->index);
+ 		f->flags = 0;
+-		f->pixelformat = ipu6_isys_pfmts[f->index].pixelformat;
++		f->pixelformat = fmt->pixelformat;
+ 		return 0;
+ 	}
+ 
+-	for (i = 0; i < ARRAY_SIZE(ipu6_isys_pfmts); i++) {
+-		if (f->mbus_code != ipu6_isys_pfmts[i].code)
++	for (i = 0; i < nfmts; i++) {
++		fmt = ipu6_isys_get_pixelformat_by_idx(i);
++
++		if (f->mbus_code != fmt->code)
+ 			continue;
+ 
+ 		if (f->index == found) {
+ 			f->flags = 0;
+-			f->pixelformat = ipu6_isys_pfmts[i].pixelformat;
++			f->pixelformat = fmt->pixelformat;
+ 			return 0;
+ 		}
+ 		found++;
+-- 
+2.43.0
+
+From ddd2826369e8ee4ba5b04502e1e20869590742da Mon Sep 17 00:00:00 2001
 From: Hans de Goede <hdegoede@redhat.com>
 Date: Mon, 6 Nov 2023 12:13:42 +0100
-Subject: [PATCH 16/26] media: Add ov01a1s driver
+Subject: [PATCH 17/31] media: Add ov01a1s driver
 
 Add ov01a1s driver from:
 https://github.com/intel/ipu6-drivers/
@@ -15618,10 +15746,10 @@ index 000000000000..0dcce8b492b4
 -- 
 2.43.0
 
-From 9c6b2ebe17d797804f57d101be4df47142ec06af Mon Sep 17 00:00:00 2001
+From 07d707663a69f65c366d3ac75c2bf41749f33224 Mon Sep 17 00:00:00 2001
 From: Hans de Goede <hdegoede@redhat.com>
 Date: Mon, 6 Nov 2023 12:33:56 +0100
-Subject: [PATCH 17/26] media: ov01a1s: Remove non upstream iVSC support
+Subject: [PATCH 18/31] media: ov01a1s: Remove non upstream iVSC support
 
 Signed-off-by: Hans de Goede <hdegoede@redhat.com>
 ---
@@ -15777,10 +15905,10 @@ index 0dcce8b492b4..c97c1a661022 100644
 -- 
 2.43.0
 
-From e8b54aceb6ccfbe490c012740f7f104c92e428fd Mon Sep 17 00:00:00 2001
+From 3f59512af8a39b5d22694e2996d8441d5e723423 Mon Sep 17 00:00:00 2001
 From: Hans de Goede <hdegoede@redhat.com>
 Date: Mon, 4 Dec 2023 13:39:38 +0100
-Subject: [PATCH 18/26] media: ov2740: Add support for reset GPIO
+Subject: [PATCH 19/31] media: ov2740: Add support for reset GPIO
 
 On some ACPI platforms, such as Chromebooks the ACPI methods to
 change the power-state (_PS0 and _PS3) fully take care of powering
@@ -15904,10 +16032,10 @@ index 24e468485fbf..e5f9569a229d 100644
 -- 
 2.43.0
 
-From 736e6db47db98012f83180764b7bfdef85c28816 Mon Sep 17 00:00:00 2001
+From ddde5ef9b19c4e4755be62c588209db986e57400 Mon Sep 17 00:00:00 2001
 From: Hans de Goede <hdegoede@redhat.com>
 Date: Mon, 4 Dec 2023 13:39:39 +0100
-Subject: [PATCH 19/26] media: ov2740: Add support for external clock
+Subject: [PATCH 20/31] media: ov2740: Add support for external clock
 
 On some ACPI platforms, such as Chromebooks the ACPI methods to
 change the power-state (_PS0 and _PS3) fully take care of powering
@@ -15982,10 +16110,10 @@ index e5f9569a229d..0396e40419ca 100644
 -- 
 2.43.0
 
-From 0f65f2815b9cb55fd519e382cc5827084366722b Mon Sep 17 00:00:00 2001
+From be361f059239a5444a436a73888cc1c1665d90a7 Mon Sep 17 00:00:00 2001
 From: Hans de Goede <hdegoede@redhat.com>
 Date: Mon, 4 Dec 2023 13:39:40 +0100
-Subject: [PATCH 20/26] media: ov2740: Move fwnode_graph_get_next_endpoint()
+Subject: [PATCH 21/31] media: ov2740: Move fwnode_graph_get_next_endpoint()
  call up
 
 If the bridge has not yet setup the fwnode-graph then
@@ -16045,10 +16173,10 @@ index 0396e40419ca..35b2f43bd3e5 100644
 -- 
 2.43.0
 
-From d4023b553a1b2609fb8f7fe8fc3331e4301ff95a Mon Sep 17 00:00:00 2001
+From 4d499411eccc2db42d0d21365039f479c9367214 Mon Sep 17 00:00:00 2001
 From: Hans de Goede <hdegoede@redhat.com>
 Date: Mon, 4 Dec 2023 13:39:41 +0100
-Subject: [PATCH 21/26] media: ov2740: Improve ov2740_check_hwcfg() error
+Subject: [PATCH 22/31] media: ov2740: Improve ov2740_check_hwcfg() error
  reporting
 
 Make ov2740_check_hwcfg() report an error on failure in all error paths,
@@ -16087,10 +16215,10 @@ index 35b2f43bd3e5..87176948f766 100644
 -- 
 2.43.0
 
-From 619ea41ca9d30c5e5a7e298cdcd1bc9334f00ef0 Mon Sep 17 00:00:00 2001
+From 44af4247219381dbbababfdfd7051dd32f85d3df Mon Sep 17 00:00:00 2001
 From: Hans de Goede <hdegoede@redhat.com>
 Date: Mon, 4 Dec 2023 13:39:42 +0100
-Subject: [PATCH 22/26] media: ov2740: Fix hts value
+Subject: [PATCH 23/31] media: ov2740: Fix hts value
 
 HTS must be more then width, so the 1080 value clearly is wrong,
 this is then corrected with some weird math dividing clocks in
@@ -16159,10 +16287,10 @@ index 87176948f766..a646be427ab2 100644
 -- 
 2.43.0
 
-From 9eb9200fd6868aa889f243467070dabcabc42277 Mon Sep 17 00:00:00 2001
+From 28c5209404274ded2f2fb2c93611da32e03a2538 Mon Sep 17 00:00:00 2001
 From: Hans de Goede <hdegoede@redhat.com>
 Date: Mon, 4 Dec 2023 13:39:43 +0100
-Subject: [PATCH 23/26] media: ov2740: Check hwcfg after allocating the ov2740
+Subject: [PATCH 24/31] media: ov2740: Check hwcfg after allocating the ov2740
  struct
 
 Alloc ov2740_data and set up the drvdata pointer before calling
@@ -16214,10 +16342,10 @@ index a646be427ab2..28f4659a6bfb 100644
 -- 
 2.43.0
 
-From 803aa6524ff069fba1d8f5d5669a797093c67854 Mon Sep 17 00:00:00 2001
+From 5e06f2a1cbbaf0ceffd62475ad4170f7224372be Mon Sep 17 00:00:00 2001
 From: Hans de Goede <hdegoede@redhat.com>
 Date: Mon, 4 Dec 2023 13:39:44 +0100
-Subject: [PATCH 24/26] media: ov2740: Add support for 180 MHz link frequency
+Subject: [PATCH 25/31] media: ov2740: Add support for 180 MHz link frequency
 
 On various Lenovo Thinkpad models with an ov2740 sensor the 360 MHz
 link frequency is not supported.
@@ -16650,10 +16778,10 @@ index 28f4659a6bfb..85629992d3aa 100644
 -- 
 2.43.0
 
-From acc28fc4ece93690be4fc5cdd1f7822f4a5989ba Mon Sep 17 00:00:00 2001
+From b8c88a81135741a39f56d63673bfd2d2f5f12b3a Mon Sep 17 00:00:00 2001
 From: Hans de Goede <hdegoede@redhat.com>
 Date: Mon, 4 Dec 2023 13:39:45 +0100
-Subject: [PATCH 25/26] media: ov2740: Add a sleep after resetting the sensor
+Subject: [PATCH 26/31] media: ov2740: Add a sleep after resetting the sensor
 
 Split the resetting of the sensor out of the link_freq_config reg_list
 and add a delay after this.
@@ -16709,10 +16837,10 @@ index 85629992d3aa..9666f6e293d9 100644
 -- 
 2.43.0
 
-From 2227876e948f11252a8a04a89c32d2ddfde9ec83 Mon Sep 17 00:00:00 2001
+From e807d266be092024e9963ffb6c7b9ace1153ec15 Mon Sep 17 00:00:00 2001
 From: Hans de Goede <hdegoede@redhat.com>
 Date: Mon, 4 Dec 2023 13:39:46 +0100
-Subject: [PATCH 26/26] media: ipu-bridge: Change ov2740 link-frequency to 180
+Subject: [PATCH 27/31] media: ipu-bridge: Change ov2740 link-frequency to 180
  MHz
 
 The only known devices that use an ov2740 sensor in combination with
@@ -16752,131 +16880,336 @@ index e38198e259c0..f980e3125a7b 100644
 -- 
 2.43.0
 
-From d9f7facd83e6acd3b32f1c65272811bb971e2848 Mon Sep 17 00:00:00 2001
+From d1c04b1284f0ce4d32ea73f6a325e08b31b2a323 Mon Sep 17 00:00:00 2001
 From: Hans de Goede <hdegoede@redhat.com>
-Date: Mon, 15 Jan 2024 15:57:06 +0100
-Subject: [PATCH] media: intel/ipu6: Disable packed bayer v4l2-buffer formats
- on TGL
+Date: Tue, 23 Jan 2024 14:58:35 +0100
+Subject: [PATCH 28/31] media: hi556: Return -EPROBE_DEFER if no endpoint is
+ found
 
-Using CSI2 packing to store 10bpp bayer data in the v4l2-buffers does not
-work on Tiger Lake when testing with an ov01a1s sensor.
-
-Disable packed bayer formats on Tiger Lake for now.
+With ipu bridge, endpoints may only be created when ipu bridge has
+initialised. This may happen after the sensor driver has first probed.
 
 Signed-off-by: Hans de Goede <hdegoede@redhat.com>
 ---
- .../media/pci/intel/ipu6/ipu6-isys-video.c    | 60 +++++++++++++------
- 1 file changed, 43 insertions(+), 17 deletions(-)
+ drivers/media/i2c/hi556.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/media/pci/intel/ipu6/ipu6-isys-video.c b/drivers/media/pci/intel/ipu6/ipu6-isys-video.c
-index e66a97a48dfd..3f14c672b63d 100644
---- a/drivers/media/pci/intel/ipu6/ipu6-isys-video.c
-+++ b/drivers/media/pci/intel/ipu6/ipu6-isys-video.c
-@@ -61,6 +61,17 @@ const struct ipu6_isys_pixelformat ipu6_isys_pfmts[] = {
- 	 IPU6_FW_ISYS_FRAME_FORMAT_RAW8},
- 	{V4L2_PIX_FMT_SRGGB8, 8, 8, MEDIA_BUS_FMT_SRGGB8_1X8,
- 	 IPU6_FW_ISYS_FRAME_FORMAT_RAW8},
-+	{V4L2_PIX_FMT_UYVY, 16, 16, MEDIA_BUS_FMT_UYVY8_1X16,
-+	 IPU6_FW_ISYS_FRAME_FORMAT_UYVY},
-+	{V4L2_PIX_FMT_YUYV, 16, 16, MEDIA_BUS_FMT_YUYV8_1X16,
-+	 IPU6_FW_ISYS_FRAME_FORMAT_YUYV},
-+	{V4L2_PIX_FMT_RGB565, 16, 16, MEDIA_BUS_FMT_RGB565_1X16,
-+	 IPU6_FW_ISYS_FRAME_FORMAT_RGB565},
-+	{V4L2_PIX_FMT_BGR24, 24, 24, MEDIA_BUS_FMT_RGB888_1X24,
-+	 IPU6_FW_ISYS_FRAME_FORMAT_RGBA888},
-+};
-+
-+const struct ipu6_isys_pixelformat ipu6_isys_pfmts_packed[] = {
- 	{V4L2_PIX_FMT_SBGGR12P, 12, 12, MEDIA_BUS_FMT_SBGGR12_1X12,
- 	 IPU6_FW_ISYS_FRAME_FORMAT_RAW12},
- 	{V4L2_PIX_FMT_SGBRG12P, 12, 12, MEDIA_BUS_FMT_SGBRG12_1X12,
-@@ -77,14 +88,6 @@ const struct ipu6_isys_pixelformat ipu6_isys_pfmts[] = {
- 	 IPU6_FW_ISYS_FRAME_FORMAT_RAW10},
- 	{V4L2_PIX_FMT_SRGGB10P, 10, 10, MEDIA_BUS_FMT_SRGGB10_1X10,
- 	 IPU6_FW_ISYS_FRAME_FORMAT_RAW10},
--	{V4L2_PIX_FMT_UYVY, 16, 16, MEDIA_BUS_FMT_UYVY8_1X16,
--	 IPU6_FW_ISYS_FRAME_FORMAT_UYVY},
--	{V4L2_PIX_FMT_YUYV, 16, 16, MEDIA_BUS_FMT_YUYV8_1X16,
--	 IPU6_FW_ISYS_FRAME_FORMAT_YUYV},
--	{V4L2_PIX_FMT_RGB565, 16, 16, MEDIA_BUS_FMT_RGB565_1X16,
--	 IPU6_FW_ISYS_FRAME_FORMAT_RGB565},
--	{V4L2_PIX_FMT_BGR24, 24, 24, MEDIA_BUS_FMT_RGB888_1X24,
--	 IPU6_FW_ISYS_FRAME_FORMAT_RGBA888},
- };
+diff --git a/drivers/media/i2c/hi556.c b/drivers/media/i2c/hi556.c
+index f6ea9b7b9700..258614b33f51 100644
+--- a/drivers/media/i2c/hi556.c
++++ b/drivers/media/i2c/hi556.c
+@@ -1207,8 +1207,13 @@ static int hi556_check_hwcfg(struct device *dev)
+ 	int ret = 0;
+ 	unsigned int i, j;
  
- static int video_open(struct file *file)
-@@ -109,14 +112,27 @@ static int video_release(struct file *file)
- 	return vb2_fop_release(file);
+-	if (!fwnode)
+-		return -ENXIO;
++	/*
++	 * Sometimes the fwnode graph is initialized by the bridge driver,
++	 * wait for this.
++	 */
++	ep = fwnode_graph_get_next_endpoint(fwnode, NULL);
++	if (!ep)
++		return -EPROBE_DEFER;
+ 
+ 	ret = fwnode_property_read_u32(fwnode, "clock-frequency", &mclk);
+ 	if (ret) {
+@@ -1221,10 +1226,6 @@ static int hi556_check_hwcfg(struct device *dev)
+ 		return -EINVAL;
+ 	}
+ 
+-	ep = fwnode_graph_get_next_endpoint(fwnode, NULL);
+-	if (!ep)
+-		return -ENXIO;
+-
+ 	ret = v4l2_fwnode_endpoint_alloc_parse(ep, &bus_cfg);
+ 	fwnode_handle_put(ep);
+ 	if (ret)
+-- 
+2.43.0
+
+From 109e64438f05a0cd791e5d84084672b2fcf12cf2 Mon Sep 17 00:00:00 2001
+From: Hans de Goede <hdegoede@redhat.com>
+Date: Tue, 23 Jan 2024 14:48:26 +0100
+Subject: [PATCH 29/31] media: hi556: Add support for reset GPIO
+
+On some ACPI platforms, such as Chromebooks the ACPI methods to
+change the power-state (_PS0 and _PS3) fully take care of powering
+on/off the sensor.
+
+On other ACPI platforms, such as e.g. various HP models with IPU6 +
+hi556 sensor, the sensor driver must control the reset GPIO itself.
+
+Add support for having the driver control an optional reset GPIO.
+
+Signed-off-by: Hans de Goede <hdegoede@redhat.com>
+---
+ drivers/media/i2c/hi556.c | 45 ++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 44 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/media/i2c/hi556.c b/drivers/media/i2c/hi556.c
+index 258614b33f51..7398391989ea 100644
+--- a/drivers/media/i2c/hi556.c
++++ b/drivers/media/i2c/hi556.c
+@@ -4,6 +4,7 @@
+ #include <asm/unaligned.h>
+ #include <linux/acpi.h>
+ #include <linux/delay.h>
++#include <linux/gpio/consumer.h>
+ #include <linux/i2c.h>
+ #include <linux/module.h>
+ #include <linux/pm_runtime.h>
+@@ -633,6 +634,9 @@ struct hi556 {
+ 	struct v4l2_ctrl *hblank;
+ 	struct v4l2_ctrl *exposure;
+ 
++	/* GPIOs, clocks, etc. */
++	struct gpio_desc *reset_gpio;
++
+ 	/* Current mode */
+ 	const struct hi556_mode *cur_mode;
+ 
+@@ -1277,6 +1281,25 @@ static void hi556_remove(struct i2c_client *client)
+ 	mutex_destroy(&hi556->mutex);
  }
  
-+static const struct ipu6_isys_pixelformat *
-+ipu6_isys_get_pixelformat_by_idx(unsigned int idx)
++static int hi556_suspend(struct device *dev)
 +{
-+	if (idx < ARRAY_SIZE(ipu6_isys_pfmts))
-+		return &ipu6_isys_pfmts[idx];
++	struct v4l2_subdev *sd = dev_get_drvdata(dev);
++	struct hi556 *hi556 = to_hi556(sd);
 +
-+	idx -= ARRAY_SIZE(ipu6_isys_pfmts);
-+
-+	if (idx < ARRAY_SIZE(ipu6_isys_pfmts_packed))
-+		return &ipu6_isys_pfmts_packed[idx];
-+
-+	return NULL;
++	gpiod_set_value_cansleep(hi556->reset_gpio, 1);
++	return 0;
 +}
 +
- static const struct ipu6_isys_pixelformat *
- ipu6_isys_get_pixelformat(u32 pixelformat)
- {
-+	const struct ipu6_isys_pixelformat *pfmt;
- 	unsigned int i;
- 
--	for (i = 0; i < ARRAY_SIZE(ipu6_isys_pfmts); i++) {
--		const struct ipu6_isys_pixelformat *pfmt = &ipu6_isys_pfmts[i];
--
-+	for (i = 0; (pfmt = ipu6_isys_get_pixelformat_by_idx(i)); i++) {
- 		if (pfmt->pixelformat == pixelformat)
- 			return pfmt;
- 	}
-@@ -138,24 +154,34 @@ int ipu6_isys_vidioc_querycap(struct file *file, void *fh,
- int ipu6_isys_vidioc_enum_fmt(struct file *file, void *fh,
- 			      struct v4l2_fmtdesc *f)
- {
--	unsigned int i, found = 0;
-+	struct ipu6_isys_video *av = video_drvdata(file);
-+	const struct ipu6_isys_pixelformat *fmt;
-+	unsigned int i, nfmts, found = 0;
- 
--	if (f->index >= ARRAY_SIZE(ipu6_isys_pfmts))
-+	nfmts = ARRAY_SIZE(ipu6_isys_pfmts);
-+	/* Disable packed formats on TGL for now, TGL has 8 CSI ports */
-+	if (av->isys->pdata->ipdata->csi2.nports != 8)
-+		nfmts += ARRAY_SIZE(ipu6_isys_pfmts_packed);
++static int hi556_resume(struct device *dev)
++{
++	struct v4l2_subdev *sd = dev_get_drvdata(dev);
++	struct hi556 *hi556 = to_hi556(sd);
 +
-+	if (f->index >= nfmts)
- 		return -EINVAL;
- 
- 	if (!f->mbus_code) {
-+		fmt = ipu6_isys_get_pixelformat_by_idx(f->index);
- 		f->flags = 0;
--		f->pixelformat = ipu6_isys_pfmts[f->index].pixelformat;
-+		f->pixelformat = fmt->pixelformat;
- 		return 0;
- 	}
- 
--	for (i = 0; i < ARRAY_SIZE(ipu6_isys_pfmts); i++) {
--		if (f->mbus_code != ipu6_isys_pfmts[i].code)
-+	for (i = 0; i < nfmts; i++) {
-+		fmt = ipu6_isys_get_pixelformat_by_idx(i);
++	gpiod_set_value_cansleep(hi556->reset_gpio, 0);
++	usleep_range(5000, 5500);
++	return 0;
++}
 +
-+		if (f->mbus_code != fmt->code)
- 			continue;
+ static int hi556_probe(struct i2c_client *client)
+ {
+ 	struct hi556 *hi556;
+@@ -1296,12 +1319,24 @@ static int hi556_probe(struct i2c_client *client)
  
- 		if (f->index == found) {
- 			f->flags = 0;
--			f->pixelformat = ipu6_isys_pfmts[i].pixelformat;
-+			f->pixelformat = fmt->pixelformat;
- 			return 0;
+ 	v4l2_i2c_subdev_init(&hi556->sd, client, &hi556_subdev_ops);
+ 
++	hi556->reset_gpio = devm_gpiod_get_optional(&client->dev, "reset",
++						    GPIOD_OUT_HIGH);
++	if (IS_ERR(hi556->reset_gpio))
++		return dev_err_probe(&client->dev, PTR_ERR(hi556->reset_gpio),
++				     "failed to get reset GPIO\n");
++
+ 	full_power = acpi_dev_state_d0(&client->dev);
+ 	if (full_power) {
++		/* Ensure non ACPI managed resources are enabled */
++		ret = hi556_resume(&client->dev);
++		if (ret)
++			return dev_err_probe(&client->dev, ret,
++					     "failed to power on sensor\n");
++
+ 		ret = hi556_identify_module(hi556);
+ 		if (ret) {
+ 			dev_err(&client->dev, "failed to find sensor: %d", ret);
+-			return ret;
++			goto probe_error_power_off;
  		}
- 		found++;
+ 	}
+ 
+@@ -1346,9 +1381,16 @@ static int hi556_probe(struct i2c_client *client)
+ 	v4l2_ctrl_handler_free(hi556->sd.ctrl_handler);
+ 	mutex_destroy(&hi556->mutex);
+ 
++probe_error_power_off:
++	if (full_power)
++		hi556_suspend(&client->dev);
++
+ 	return ret;
+ }
+ 
++static DEFINE_RUNTIME_DEV_PM_OPS(hi556_pm_ops, hi556_suspend, hi556_resume,
++				 NULL);
++
+ #ifdef CONFIG_ACPI
+ static const struct acpi_device_id hi556_acpi_ids[] = {
+ 	{"INT3537"},
+@@ -1362,6 +1404,7 @@ static struct i2c_driver hi556_i2c_driver = {
+ 	.driver = {
+ 		.name = "hi556",
+ 		.acpi_match_table = ACPI_PTR(hi556_acpi_ids),
++		.pm = pm_sleep_ptr(&hi556_pm_ops),
+ 	},
+ 	.probe = hi556_probe,
+ 	.remove = hi556_remove,
+-- 
+2.43.0
+
+From 23a74772614fcba8ad2ed9370db613ab0540072e Mon Sep 17 00:00:00 2001
+From: Hans de Goede <hdegoede@redhat.com>
+Date: Tue, 23 Jan 2024 14:54:22 +0100
+Subject: [PATCH 30/31] media: hi556: Add support for external clock
+
+On some ACPI platforms, such as Chromebooks the ACPI methods to
+change the power-state (_PS0 and _PS3) fully take care of powering
+on/off the sensor.
+
+On other ACPI platforms, such as e.g. various HP models with IPU6 +
+hi556 sensor, the sensor driver must control the sensor's clock itself.
+
+Add support for having the driver control an optional clock.
+
+Signed-off-by: Hans de Goede <hdegoede@redhat.com>
+---
+ drivers/media/i2c/hi556.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/drivers/media/i2c/hi556.c b/drivers/media/i2c/hi556.c
+index 7398391989ea..fb6ba6984e38 100644
+--- a/drivers/media/i2c/hi556.c
++++ b/drivers/media/i2c/hi556.c
+@@ -3,6 +3,7 @@
+ 
+ #include <asm/unaligned.h>
+ #include <linux/acpi.h>
++#include <linux/clk.h>
+ #include <linux/delay.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/i2c.h>
+@@ -636,6 +637,7 @@ struct hi556 {
+ 
+ 	/* GPIOs, clocks, etc. */
+ 	struct gpio_desc *reset_gpio;
++	struct clk *clk;
+ 
+ 	/* Current mode */
+ 	const struct hi556_mode *cur_mode;
+@@ -1287,6 +1289,7 @@ static int hi556_suspend(struct device *dev)
+ 	struct hi556 *hi556 = to_hi556(sd);
+ 
+ 	gpiod_set_value_cansleep(hi556->reset_gpio, 1);
++	clk_disable_unprepare(hi556->clk);
+ 	return 0;
+ }
+ 
+@@ -1294,6 +1297,11 @@ static int hi556_resume(struct device *dev)
+ {
+ 	struct v4l2_subdev *sd = dev_get_drvdata(dev);
+ 	struct hi556 *hi556 = to_hi556(sd);
++	int ret;
++
++	ret = clk_prepare_enable(hi556->clk);
++	if (ret)
++		return ret;
+ 
+ 	gpiod_set_value_cansleep(hi556->reset_gpio, 0);
+ 	usleep_range(5000, 5500);
+@@ -1325,6 +1333,11 @@ static int hi556_probe(struct i2c_client *client)
+ 		return dev_err_probe(&client->dev, PTR_ERR(hi556->reset_gpio),
+ 				     "failed to get reset GPIO\n");
+ 
++	hi556->clk = devm_clk_get_optional(&client->dev, "clk");
++	if (IS_ERR(hi556->clk))
++		return dev_err_probe(&client->dev, PTR_ERR(hi556->clk),
++				     "failed to get clock\n");
++
+ 	full_power = acpi_dev_state_d0(&client->dev);
+ 	if (full_power) {
+ 		/* Ensure non ACPI managed resources are enabled */
+-- 
+2.43.0
+
+From 6c3b454ee3ab07dd2e10011d685f6bd9f03bee71 Mon Sep 17 00:00:00 2001
+From: Hans de Goede <hdegoede@redhat.com>
+Date: Wed, 24 Jan 2024 18:45:02 +0100
+Subject: [PATCH 31/31] media: hi556: Add support for avdd regulator
+
+On some ACPI platforms, such as Chromebooks the ACPI methods to
+change the power-state (_PS0 and _PS3) fully take care of powering
+on/off the sensor.
+
+On other ACPI platforms, such as e.g. various HP models with IPU6 +
+hi556 sensor, the sensor driver must control the avdd regulator itself.
+
+Add support for having the driver control the sensor's avdd regulator.
+Note this relies on the regulator-core providing a dummy regulator
+(which it does by default) on platforms where Linux is not aware of
+the avdd regulator.
+
+Signed-off-by: Hans de Goede <hdegoede@redhat.com>
+---
+ drivers/media/i2c/hi556.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+diff --git a/drivers/media/i2c/hi556.c b/drivers/media/i2c/hi556.c
+index fb6ba6984e38..90eff282a6e2 100644
+--- a/drivers/media/i2c/hi556.c
++++ b/drivers/media/i2c/hi556.c
+@@ -9,6 +9,7 @@
+ #include <linux/i2c.h>
+ #include <linux/module.h>
+ #include <linux/pm_runtime.h>
++#include <linux/regulator/consumer.h>
+ #include <media/v4l2-ctrls.h>
+ #include <media/v4l2-device.h>
+ #include <media/v4l2-fwnode.h>
+@@ -638,6 +639,7 @@ struct hi556 {
+ 	/* GPIOs, clocks, etc. */
+ 	struct gpio_desc *reset_gpio;
+ 	struct clk *clk;
++	struct regulator *avdd;
+ 
+ 	/* Current mode */
+ 	const struct hi556_mode *cur_mode;
+@@ -1287,8 +1289,17 @@ static int hi556_suspend(struct device *dev)
+ {
+ 	struct v4l2_subdev *sd = dev_get_drvdata(dev);
+ 	struct hi556 *hi556 = to_hi556(sd);
++	int ret;
+ 
+ 	gpiod_set_value_cansleep(hi556->reset_gpio, 1);
++
++	ret = regulator_disable(hi556->avdd);
++	if (ret) {
++		dev_err(dev, "failed to disable avdd: %d\n", ret);
++		gpiod_set_value_cansleep(hi556->reset_gpio, 0);
++		return ret;
++	}
++
+ 	clk_disable_unprepare(hi556->clk);
+ 	return 0;
+ }
+@@ -1303,6 +1314,13 @@ static int hi556_resume(struct device *dev)
+ 	if (ret)
+ 		return ret;
+ 
++	ret = regulator_enable(hi556->avdd);
++	if (ret) {
++		dev_err(dev, "failed to enable avdd: %d\n", ret);
++		clk_disable_unprepare(hi556->clk);
++		return ret;
++	}
++
+ 	gpiod_set_value_cansleep(hi556->reset_gpio, 0);
+ 	usleep_range(5000, 5500);
+ 	return 0;
+@@ -1338,6 +1356,12 @@ static int hi556_probe(struct i2c_client *client)
+ 		return dev_err_probe(&client->dev, PTR_ERR(hi556->clk),
+ 				     "failed to get clock\n");
+ 
++	/* The regulator core will provide a "dummy" regulator if necessary */
++	hi556->avdd = devm_regulator_get(&client->dev, "avdd");
++	if (IS_ERR(hi556->avdd))
++		return dev_err_probe(&client->dev, PTR_ERR(hi556->avdd),
++				     "failed to get avdd regulator\n");
++
+ 	full_power = acpi_dev_state_d0(&client->dev);
+ 	if (full_power) {
+ 		/* Ensure non ACPI managed resources are enabled */
 -- 
 2.43.0
 

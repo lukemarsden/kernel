@@ -151,7 +151,7 @@ Summary: The Linux kernel
 #  kernel release. (This includes prepatch or "rc" releases.)
 # Set released_kernel to 0 when the upstream source tarball contains an
 #  unreleased kernel development snapshot.
-%global released_kernel 0
+%global released_kernel 1
 # Set debugbuildsenabled to 1 to build separate base and debug kernels
 #  (on supported architectures). The kernel-debug-* subpackages will
 #  contain the debug kernel.
@@ -160,18 +160,18 @@ Summary: The Linux kernel
 #  the --with-release option overrides this setting.)
 %define debugbuildsenabled 1
 %define buildid .1.ipu6
-%define specrpmversion 6.7.0
-%define specversion 6.7.0
+%define specrpmversion 6.7.1
+%define specversion 6.7.1
 %define patchversion 6.7
-%define pkgrelease 68
+%define pkgrelease 200
 %define kversion 6
-%define tarfile_release 6.7
+%define tarfile_release 6.7.1
 # This is needed to do merge window version magic
 %define patchlevel 7
 # This allows pkg_release to have configurable %%{?dist} tag
-%define specrelease 68%{?buildid}%{?dist}
+%define specrelease 200%{?buildid}%{?dist}
 # This defines the kabi tarball version
-%define kabiversion 6.7.0
+%define kabiversion 6.7.1
 
 # If this variable is set to 1, a bpf selftests build failure will cause a
 # fatal kernel package build error
@@ -224,6 +224,8 @@ Summary: The Linux kernel
 %define with_cross_headers   %{?_without_cross_headers:   0} %{?!_without_cross_headers:   1}
 # perf
 %define with_perf      %{?_without_perf:      0} %{?!_without_perf:      1}
+# libperf
+%define with_libperf   %{?_without_libperf:   0} %{?!_without_libperf:   1}
 # tools
 %define with_tools     %{?_without_tools:     0} %{?!_without_tools:     1}
 # bpf tool
@@ -300,9 +302,10 @@ Summary: The Linux kernel
 # no stablelist
 %define with_kernel_abi_stablelists 0
 # Fedora builds these separately
-%define with_perf 0
-%define with_tools 0
-%define with_bpftool 0
+%define with_perf 1
+%define with_libperf 1
+%define with_tools 1
+%define with_bpftool 1
 # No realtime fedora variants
 %define with_realtime 0
 %define with_arm64_64k 0
@@ -388,6 +391,7 @@ Summary: The Linux kernel
 %define with_realtime 0
 %define with_vdso_install 0
 %define with_perf 0
+%define with_libperf 0
 %define with_tools 0
 %define with_bpftool 0
 %define with_kernel_abi_stablelists 0
@@ -402,6 +406,7 @@ Summary: The Linux kernel
 %define with_base 0
 %define with_vdso_install 0
 %define with_perf 0
+%define with_libperf 0
 %define with_tools 0
 %define with_bpftool 0
 %define with_kernel_abi_stablelists 0
@@ -417,6 +422,7 @@ Summary: The Linux kernel
 %define with_debuginfo 0
 %define with_vdso_install 0
 %define with_perf 0
+%define with_libperf 0
 %define with_tools 0
 %define with_bpftool 0
 %define with_kernel_abi_stablelists 0
@@ -480,6 +486,7 @@ Summary: The Linux kernel
 %define with_cross_headers 0
 %define with_tools 0
 %define with_perf 0
+%define with_libperf 0
 %define with_bpftool 0
 %define with_selftests 0
 %define with_debug 0
@@ -572,6 +579,7 @@ Summary: The Linux kernel
 
 %define with_debuginfo 0
 %define with_perf 0
+%define with_libperf 0
 %define with_tools 0
 %define with_bpftool 0
 %define with_selftests 0
@@ -696,7 +704,11 @@ BuildRequires: opencsd-devel >= 1.0.0
 BuildRequires: python3-docutils
 BuildRequires: gettext ncurses-devel
 BuildRequires: libcap-devel libcap-ng-devel
+# The following are rtla requirements
+BuildRequires: python3-docutils
+BuildRequires: libtraceevent-devel
 BuildRequires: libtracefs-devel
+
 %ifnarch s390x
 BuildRequires: pciutils-devel
 %endif
@@ -713,6 +725,9 @@ BuildRequires: zlib-devel binutils-devel
 %endif
 %if %{with_selftests}
 BuildRequires: clang llvm-devel fuse-devel
+%ifarch x86_64
+BuildRequires: lld
+%endif
 BuildRequires: libcap-devel libcap-ng-devel rsync libmnl-devel
 BuildRequires: numactl-devel
 %endif
@@ -1117,6 +1132,23 @@ This package provides debug information for the perf python bindings.
 # with_perf
 %endif
 
+%if %{with_libperf}
+%package -n libperf
+Summary: The perf library from kernel source
+License: GPL-2.0-only AND (LGPL-2.1-only OR BSD-2-Clause)
+%description -n libperf
+This package contains the kernel source perf library.
+
+%package -n libperf-devel
+Summary: Developement files for the perf library from kernel source
+License: GPL-2.0-only AND (LGPL-2.1-only OR BSD-2-Clause)
+%description -n libperf-devel
+This package includes libraries and header files needed for development
+of applications which use perf library from kernel source.
+
+# with_libperf
+%endif
+
 %if %{with_tools}
 %package -n %{package_name}-tools
 Summary: Assortment of tools for the Linux kernel
@@ -1171,13 +1203,14 @@ This package provides debug information for package %{package_name}-tools.
 %if 0%{gemini}
 Epoch: %{gemini}
 %endif
-Summary: RTLA: Real-Time Linux Analysis tools
+Summary: Real-Time Linux Analysis tools
+Requires: libtraceevent
+Requires: libtracefs
 %description -n rtla
-The rtla tool is a meta-tool that includes a set of commands that
-aims to analyze the real-time properties of Linux. But, instead of
-testing Linux as a black box, rtla leverages kernel tracing
-capabilities to provide precise information about the properties
-and root causes of unexpected results.
+The rtla meta-tool includes a set of commands that aims to analyze
+the real-time properties of Linux. Instead of testing Linux as a black box,
+rtla leverages kernel tracing capabilities to provide precise information
+about the properties and root causes of unexpected results.
 
 %package -n rv
 Summary: RV: Runtime Verification
@@ -1194,18 +1227,14 @@ analysing the logical and timing behavior of Linux.
 
 %if %{with_bpftool}
 
-%define bpftoolversion 7.3.0
-
 %package -n bpftool
 Summary: Inspection and simple manipulation of eBPF programs and maps
-Version: %{bpftoolversion}
 %description -n bpftool
 This package contains the bpftool, which allows inspection and simple
 manipulation of eBPF programs and maps.
 
 %package -n bpftool-debuginfo
 Summary: Debug information for package bpftool
-Version: %{bpftoolversion}
 Group: Development/Debug
 Requires: %{name}-debuginfo-common-%{_target_cpu} = %{specrpmversion}-%{release}
 AutoReqProv: no
@@ -1225,7 +1254,7 @@ This package provides debug information for the bpftool package.
 
 %package selftests-internal
 Summary: Kernel samples and selftests
-Requires: binutils, bpftool, iproute-tc, nmap-ncat, python3, fuse-libs
+Requires: binutils, bpftool, iproute-tc, nmap-ncat, python3, fuse-libs, keyutils
 %description selftests-internal
 Kernel sample programs and selftests.
 
@@ -1234,6 +1263,8 @@ Kernel sample programs and selftests.
 # the leading .*, because of find-debuginfo.sh's buggy handling
 # of matching the pattern against the symlinks file.
 %{expand:%%global _find_debuginfo_opts %{?_find_debuginfo_opts} -p '.*%%{_libexecdir}/(ksamples|kselftests)/.*|XXX' -o selftests-debuginfo.list}
+
+%define __requires_exclude ^liburandom_read.so.*$
 
 # with_selftests
 %endif
@@ -1507,7 +1538,7 @@ Provides: installonlypkg(kernel)\
 Provides: kernel-%{?1:%{1}-}uname-r = %{KVERREL}%{uname_suffix %{?1:+%{1}}}\
 Requires: kernel%{?1:-%{1}}-modules-core-uname-r = %{KVERREL}%{uname_suffix %{?1:+%{1}}}\
 Requires(pre): %{kernel_prereq}\
-Requires(pre): systemd >= 254-1\
+Requires(pre): systemd\
 %endif\
 %endif\
 %if %{with_gcov}\
@@ -2708,8 +2739,9 @@ InitBuildVars
 %ifarch aarch64
 %global perf_build_extra_opts CORESIGHT=1
 %endif
+# LIBBPF_DYNAMIC=1 temporarily removed from the next command, it breaks the build on f39 and 38
 %global perf_make \
-  %{__make} %{?make_opts} EXTRA_CFLAGS="${RPM_OPT_FLAGS}" LDFLAGS="%{__global_ldflags} -Wl,-E" %{?cross_opts} -C tools/perf V=1 NO_PERF_READ_VDSO32=1 NO_PERF_READ_VDSOX32=1 WERROR=0 NO_LIBUNWIND=1 HAVE_CPLUS_DEMANGLE=1 NO_GTK2=1 NO_STRLCPY=1 NO_BIONIC=1 LIBBPF_DYNAMIC=1 LIBTRACEEVENT_DYNAMIC=1 %{?perf_build_extra_opts} prefix=%{_prefix} PYTHON=%{__python3}
+  %{__make} %{?make_opts} EXTRA_CFLAGS="${RPM_OPT_FLAGS}" LDFLAGS="%{__global_ldflags} -Wl,-E" %{?cross_opts} -C tools/perf V=1 NO_PERF_READ_VDSO32=1 NO_PERF_READ_VDSOX32=1 WERROR=0 NO_LIBUNWIND=1 HAVE_CPLUS_DEMANGLE=1 NO_GTK2=1 NO_STRLCPY=1 NO_BIONIC=1 LIBTRACEEVENT_DYNAMIC=1 %{?perf_build_extra_opts} prefix=%{_prefix} PYTHON=%{__python3}
 %if %{with_perf}
 # perf
 # make sure check-headers.sh is executable
@@ -2996,6 +3028,13 @@ mkdir -p %{buildroot}/%{_mandir}/man1
 # LIBTRACEEVENT_DYNAMIC=1 above in perf_make macro). Those files should already
 # ship with libtraceevent package.
 rm -rf %{buildroot}%{_libdir}/traceevent
+%endif
+
+%if %{with_libperf}
+pushd tools/lib/perf
+%{tools_make} DESTDIR=%{buildroot} prefix=%{_prefix} libdir=%{_libdir} install install_headers
+rm -rf %{buildroot}%{_libdir}/libperf.a
+popd
 %endif
 
 %if %{with_tools}
@@ -3483,6 +3522,37 @@ fi\
 # with_perf
 %endif
 
+%if %{with_libperf}
+%files -n libperf
+%{_libdir}/libperf.so.0
+%{_libdir}/libperf.so.0.0.1
+
+%files -n libperf-devel
+%{_libdir}/libperf.so
+%{_libdir}/pkgconfig/libperf.pc
+%{_includedir}/internal/*.h
+%{_includedir}/perf/bpf_perf.h
+%{_includedir}/perf/core.h
+%{_includedir}/perf/cpumap.h
+%{_includedir}/perf/perf_dlfilter.h
+%{_includedir}/perf/event.h
+%{_includedir}/perf/evlist.h
+%{_includedir}/perf/evsel.h
+%{_includedir}/perf/mmap.h
+%{_includedir}/perf/threadmap.h
+%{_mandir}/man3/libperf.3.gz
+%{_mandir}/man7/libperf-counting.7.gz
+%{_mandir}/man7/libperf-sampling.7.gz
+%{_docdir}/libperf/examples/sampling.c
+%{_docdir}/libperf/examples/counting.c
+%{_docdir}/libperf/html/libperf.html
+%{_docdir}/libperf/html/libperf-counting.html
+%{_docdir}/libperf/html/libperf-sampling.html
+
+# with_libperf
+%endif
+
+
 %if %{with_tools}
 %ifnarch %{cpupowerarchs}
 %files -n %{package_name}-tools
@@ -3526,12 +3596,14 @@ fi\
 
 %ifarch %{cpupowerarchs}
 %files -n %{package_name}-tools-libs
-%{_libdir}/libcpupower.so.1
+%{_libdir}/libcpupower.so.0
 %{_libdir}/libcpupower.so.0.0.1
 
 %files -n %{package_name}-tools-libs-devel
 %{_libdir}/libcpupower.so
 %{_includedir}/cpufreq.h
+%{_includedir}/cpuidle.h
+%{_includedir}/powercap.h
 %endif
 
 %files -n rtla
@@ -3757,6 +3829,54 @@ fi\
 #
 #
 %changelog
+* Wed Jan 24 2024 Hans de Goede <hdegoede@redhat.com> [6.7.1-0.1.ipu6]
+- Add IPU6 patches from: https://github.com/jwrdegoede/linux-sunxi/commits/ipu6-v6.7.y
+- Enable IPU6 and various sensor drivers
+- Enable the AtomISP driver
+
+* Sat Jan 20 2024 Justin M. Forbes <jforbes@fedoraproject.org> [6.7.1-0]
+- Fix up requires for UKI (Justin M. Forbes)
+- Fix up libperf install (Justin M. Forbes)
+- Drop soname for libcpupower.so since we reverted the bump (Justin M. Forbes)
+- Turn on CONFIG_TCP_AO for Fedora (Justin M. Forbes)
+- temporarily remove LIBBPF_DYNAMIC=1 from perf build (Thorsten Leemhuis)
+- add libperf packages and enable perf, libperf, tools and bpftool packages (Thorsten Leemhuis)
+- Revert "cpupower: Bump soname version" (Justin M. Forbes)
+- Turn on Renesas RZ for Fedora IOT rhbz2257913 (Justin M. Forbes)
+- Add bugs to BugsFixed (Justin M. Forbes)
+- wifi: ath10k: fix NULL pointer dereference in ath10k_wmi_tlv_op_pull_mgmt_tx_compl_ev() (Xingyuan Mo)
+- drivers/firmware: skip simpledrm if nvidia-drm.modeset=1 is set (Javier Martinez Canillas)
+- Basic scaffolding to create a kernel-headers package (Justin M. Forbes)
+- Initial config for fedora-6.7 branch (Justin M. Forbes)
+- Reset RHEL_RELEASE for 6.8 series (Justin M. Forbes)
+- common: cleanup MX3_IPU (Peter Robinson)
+- all: The Octeon MDIO driver is aarch64/mips (Peter Robinson)
+- common: rtc: remove bq4802 config (Peter Robinson)
+- common: de-dupe MARVELL_GTI_WDT (Peter Robinson)
+- all: Remove CAN_BXCAN (Peter Robinson)
+- common: cleanup SND_SOC_ROCKCHIP (Peter Robinson)
+- common: move RHEL DP83867_PHY to common (Peter Robinson)
+- common: Make ASYMMETRIC_KEY_TYPE enable explicit (Peter Robinson)
+- common: Disable aarch64 ARCH_MA35 universally (Peter Robinson)
+- common: arm64: enable Tegra234 pinctrl driver (Peter Robinson)
+- rhel: arm64: Enable qoriq thermal driver (Peter Robinson)
+- common: aarch64: Cleanup some i.MX8 config options (Peter Robinson)
+- all: EEPROM_LEGACY has been removed (Peter Robinson)
+- all: rmeove AppleTalk hardware configs (Peter Robinson)
+- all: cleanup: remove references to SLOB (Peter Robinson)
+- all: cleanup: Drop unnessary BRCMSTB configs (Peter Robinson)
+- all: net: remove retired network schedulers (Peter Robinson)
+- all: cleanup removed CONFIG_IMA_TRUSTED_KEYRING (Peter Robinson)
+- BuildRequires: lld for build with selftests for x86 (Jan Stancek)
+- spec: add keyutils to selftest-internal subpackage requirements (Artem Savkov) [2166911]
+- redhat/spec: exclude liburandom_read.so from requires (Artem Savkov) [2120968]
+- rtla: sync summary text with upstream and update Requires (Jan Stancek)
+- uki-virt: add systemd-sysext dracut module (Gerd Hoffmann)
+- uki-virt: add virtiofs dracut module (Gerd Hoffmann)
+- common: disable the FB device creation (Peter Robinson)
+- s390x: There's no FB on Z-series (Peter Robinson)
+- Linux v6.7.1
+
 * Mon Jan 08 2024 Fedora Kernel Team <kernel-team@fedoraproject.org> [6.7.0-68]
 - fedora: aarch64: enable SM_VIDEOCC_8350 (Peter Robinson)
 - Linux v6.7.0

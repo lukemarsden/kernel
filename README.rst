@@ -1,3 +1,8 @@
+Build this kernel with:
+```
+sudo /usr/bin/copr-rpmbuild --verbose --drop-resultdir --task-file task_file.json --chroot fedora-39-x86_64
+```
+
 ===================
 The Kernel dist-git
 ===================

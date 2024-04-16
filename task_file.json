@@ -7,7 +7,7 @@
   "chroot": "fedora-39-x86_64",
   "enable_net": false,
   "fedora_review": false,
-  "git_hash": "0ed76891b2fc08579d08bedb9294a41840007299",
+  "git_hash": "5ac65f18414f64c568c98c94a86c81f6451ff1a4",
   "git_repo": "https://github.com/lukemarsden/kernel",
   "isolation": "default",
   "memory_reqs": 2048,

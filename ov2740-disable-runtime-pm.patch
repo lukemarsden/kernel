@@ -1,0 +1,36 @@
+From af377d7fa423f371a3a9b8288b8d65da8a90f47e Mon Sep 17 00:00:00 2001
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+Date: Fri, 22 Mar 2024 22:20:25 +0200
+Subject: HACK: ov2740: disable runtime PM
+
+Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+---
+ drivers/media/i2c/ov2740.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/media/i2c/ov2740.c b/drivers/media/i2c/ov2740.c
+index d6b4533a834a..e7de9a22f3b8 100644
+--- a/drivers/media/i2c/ov2740.c
++++ b/drivers/media/i2c/ov2740.c
+@@ -1549,7 +1549,8 @@ static int ov2740_probe(struct i2c_client *client)
+ 	if (full_power)
+ 		pm_runtime_set_active(&client->dev);
+ 	pm_runtime_enable(&client->dev);
+-	pm_runtime_idle(&client->dev);
++	pm_runtime_get(&client->dev);
++	/* pm_runtime_idle(&client->dev); */
+ 
+ 	ret = v4l2_async_register_subdev_sensor(&ov2740->sd);
+ 	if (ret < 0) {
+@@ -1599,7 +1600,7 @@ static struct i2c_driver ov2740_i2c_driver = {
+ 	},
+ 	.probe = ov2740_probe,
+ 	.remove = ov2740_remove,
+-	.flags = I2C_DRV_ACPI_WAIVE_D0_PROBE,
++	/* .flags = I2C_DRV_ACPI_WAIVE_D0_PROBE, */
+ };
+ 
+ module_i2c_driver(ov2740_i2c_driver);
+-- 
+cgit v1.2.3
+

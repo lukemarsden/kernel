@@ -8,7 +8,7 @@
   "enable_net": false,
   "fedora_review": false,
   "git_hash": "0ed76891b2fc08579d08bedb9294a41840007299",
-  "git_repo": "https://copr-dist-git.fedorainfracloud.org/git/jwrdegoede/ipu6-softisp/kernel",
+  "git_repo": "https://github.com/lukemarsden/kernel",
   "isolation": "default",
   "memory_reqs": 2048,
   "package_name": "kernel",

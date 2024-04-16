@@ -1,0 +1,37 @@
+{
+  "allow_user_ssh": false,
+  "appstream": false,
+  "background": false,
+  "build_id": 6947534,
+  "buildroot_pkgs": [],
+  "chroot": "fedora-39-x86_64",
+  "enable_net": false,
+  "fedora_review": false,
+  "git_hash": "0ed76891b2fc08579d08bedb9294a41840007299",
+  "git_repo": "https://copr-dist-git.fedorainfracloud.org/git/jwrdegoede/ipu6-softisp/kernel",
+  "isolation": "default",
+  "memory_reqs": 2048,
+  "package_name": "kernel",
+  "package_version": "6.7.1-200.1.ipu6",
+  "project_dirname": "ipu6-softisp",
+  "project_name": "ipu6-softisp",
+  "project_owner": "jwrdegoede",
+  "repo_priority": null,
+  "repos": [
+    {
+      "baseurl": "https://download.copr.fedorainfracloud.org/results/jwrdegoede/ipu6-softisp/fedora-39-x86_64/",
+      "id": "copr_base",
+      "name": "Copr repository",
+      "priority": null
+    }
+  ],
+  "sandbox": "jwrdegoede/ipu6-softisp--jwrdegoede",
+  "ssh_public_keys": null,
+  "submitter": "jwrdegoede",
+  "tags": [],
+  "task_id": "6947534-fedora-39-x86_64",
+  "timeout": 36000,
+  "uses_devel_repo": false,
+  "with_opts": [],
+  "without_opts": []
+}
